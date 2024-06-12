@@ -61,7 +61,7 @@ public class AuthenticationService {
 
             String token = tokenService.generateJwt(auth);
 
-            return new LoginResponseDTO(userRepository.findByUsername(username).get(), token);
+            return new LoginResponseDTO(userRepository.findByUsername(username).orElseThrow(() -> new NoSuchElementException("username not found")), token);
 
         } catch (AuthenticationException e) {
             return new LoginResponseDTO(null, "");
