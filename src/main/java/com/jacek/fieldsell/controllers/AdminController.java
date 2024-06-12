@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminController {
 
     @GetMapping("/")
-    public String helloAdminController(){
+    public String helloAdminController() {
         return "Admin level access";
     }
 
